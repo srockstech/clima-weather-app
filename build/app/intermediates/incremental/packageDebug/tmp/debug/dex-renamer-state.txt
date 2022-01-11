@@ -1,4 +1,0 @@
-#Mon Jan 10 03:24:48 IST 2022
-base.0=C\:\\Users\\sarva\\Flutter Projects\\Clima-Flutter\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
