@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:clima/screens/loading_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
@@ -23,48 +24,61 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   void initState() {
     super.initState();
-    updateUI(widget.locationWeather);
+    Future.delayed(Duration.zero, () {
+      updateUI(widget.locationWeather);
+    });
   }
 
   void updateUI(weatherData) {
     setState(() {
-      if (weather == null) {
+      if (weatherData == null) {
         Alert(
           context: context,
           type: AlertType.error,
           title: "ERROR",
-          desc: "Unable to fetch location!",
+          desc: "Unable to fetch weather data!",
           buttons: [
             DialogButton(
               child: Text(
-                "Retry",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                "RETRY",
+                style: TextStyle(color: Colors.black, fontSize: 20),
               ),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoadingScreen();
+                    },
+                  ),
+                );
+              },
               width: 120,
             )
           ],
         ).show();
-      } else {
-        temperature = (weatherData['main']['temp']).toInt();
-        condition = weatherData['weather'][0]['id'];
-        cityName = weatherData['name'];
+
+        return;
       }
+      temperature = (weatherData['main']['temp']).toInt();
+      condition = weatherData['weather'][0]['id'];
+      cityName = weatherData['name'];
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    print('build called');
-    double width = MediaQuery.of(context).size.width;
+    if (temperature == null) {
+      return Scaffold();
+    }
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/location_background.jpg'),
+            image: AssetImage('images/waterfall.gif'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
+                Colors.white.withOpacity(0.6), BlendMode.dstATop),
           ),
         ),
         constraints: BoxConstraints.expand(),
@@ -82,17 +96,23 @@ class _LocationScreenState extends State<LocationScreen> {
                       onPressed: () {},
                       child: Icon(
                         Icons.location_city,
-                        size: width * 0.1,
+                        size: 35,
                       ),
                     ),
                     FlatButton(
-                      onPressed: () async {
-                        var newWeatherData = await weather.getLocationWeather();
-                        updateUI(newWeatherData);
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return LoadingScreen();
+                            },
+                          ),
+                        );
                       },
                       child: Icon(
-                        Icons.near_me,
-                        size: width * 0.1,
+                        Icons.refresh_rounded,
+                        size: 35,
                       ),
                     ),
                   ],
@@ -107,20 +127,14 @@ class _LocationScreenState extends State<LocationScreen> {
                       Expanded(
                         child: Text(
                           '$temperature°',
-                          style: TextStyle(
-                            fontFamily: 'Spartan MB',
-                            fontSize: width * 0.29,
-                          ),
+                          style: kTempTextStyle,
                           textAlign: TextAlign.right,
                         ),
                       ),
                       Expanded(
                         child: Text(
                           weather.getWeatherIcon(condition),
-                          style: TextStyle(
-                            fontFamily: 'Spartan MB',
-                            fontSize: width * 0.22,
-                          ),
+                          style: kConditionTextStyle,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -129,16 +143,13 @@ class _LocationScreenState extends State<LocationScreen> {
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Padding(
                   padding: EdgeInsets.only(right: 15.0),
                   child: Text(
                     '${weather.getMessage(temperature)} in $cityName !',
                     textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontFamily: 'Spartan MB',
-                      fontSize: width * 0.12,
-                    ),
+                    style: kMessageTextStyle,
                   ),
                 ),
               ),
