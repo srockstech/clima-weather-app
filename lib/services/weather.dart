@@ -1,4 +1,4 @@
-import 'package:clima/location.dart';
+import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 
 const apiKey = 'e2490eb92936c771bfa507d54ebaa14b';
