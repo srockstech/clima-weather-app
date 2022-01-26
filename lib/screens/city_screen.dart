@@ -10,10 +10,25 @@ class _CityScreenState extends State<CityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Color(0x00000000),
+        elevation: 1,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            size: 30.0,
+          ),
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/city_background.jpg'),
+            image: AssetImage('images/waterfall.gif'),
+            opacity: 0.5,
             fit: BoxFit.cover,
           ),
         ),
@@ -21,24 +36,28 @@ class _CityScreenState extends State<CityScreen> {
         child: SafeArea(
           child: Column(
             children: <Widget>[
-              Align(
-                alignment: Alignment.topLeft,
-                child: FlatButton(
-                  onPressed: () {},
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    size: 50.0,
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 35),
+                child: TextField(
+                  onChanged: (value) {
+                    print(value);
+                  },
+                  cursorColor: Colors.white,
+                  cursorHeight: 21,
+                  style: TextStyle(
+                    height: 1,
+                    fontSize: 23,
                   ),
+                  decoration: kTextFieldInputDecoration,
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(20.0),
-                child: null,
+              SizedBox(
+                height: 20,
               ),
               FlatButton(
                 onPressed: () {},
                 child: Text(
-                  'Get Weather',
+                  'Search',
                   style: kButtonTextStyle,
                 ),
               ),

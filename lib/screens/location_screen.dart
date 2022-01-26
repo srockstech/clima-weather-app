@@ -1,10 +1,9 @@
-import 'dart:ui';
 import 'package:clima/screens/loading_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 import 'package:clima/services/weather.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
   final locationWeather;
@@ -92,7 +91,16 @@ class _LocationScreenState extends State<LocationScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return CityScreen();
+                            },
+                          ),
+                        );
+                      },
                       child: Icon(
                         Icons.location_city,
                         size: 35,
@@ -122,6 +130,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Padding(
                   padding: EdgeInsets.only(left: 15.0),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
                         child: Text(
@@ -142,7 +151,13 @@ class _LocationScreenState extends State<LocationScreen> {
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 3,
+                child: SizedBox(
+                  height: 1,
+                ),
+              ),
+              Expanded(
+                flex: 4,
                 child: Padding(
                   padding: EdgeInsets.only(right: 15.0),
                   child: Text(
