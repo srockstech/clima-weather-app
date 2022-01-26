@@ -31,10 +31,22 @@ class _LocationScreenState extends State<LocationScreen> {
     setState(() {
       if (weatherData == null) {
         Alert(
+          style: AlertStyle(
+            titleStyle: TextStyle(
+              fontFamily: 'Spartan MB',
+              color: Colors.black,
+            ),
+            descStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black,
+            ),
+            backgroundColor: Colors.white,
+          ),
           context: context,
           type: AlertType.error,
-          title: "ERROR",
-          desc: "Unable to fetch weather data!",
+          title: "ERROR!",
+          desc: "UNABLE TO FETCH WEATHER DATA",
           buttons: [
             DialogButton(
               child: Text(
