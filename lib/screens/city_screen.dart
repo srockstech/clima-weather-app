@@ -7,9 +7,11 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
+  String cityName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Color(0x00000000),
@@ -40,7 +42,7 @@ class _CityScreenState extends State<CityScreen> {
                 padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 35),
                 child: TextField(
                   onChanged: (value) {
-                    print(value);
+                    cityName = value;
                   },
                   cursorColor: Colors.white,
                   cursorHeight: 21,
@@ -55,7 +57,9 @@ class _CityScreenState extends State<CityScreen> {
                 height: 20,
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context, cityName);
+                },
                 child: Text(
                   'Search',
                   style: kButtonTextStyle,
