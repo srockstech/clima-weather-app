@@ -13,3 +13,5 @@ Flutter packages used:
 API used: Open Weather Map
 
 PREVIEW:
+
+<img src="preview.gif" width=400>
