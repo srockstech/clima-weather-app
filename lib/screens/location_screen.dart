@@ -82,6 +82,7 @@ class _LocationScreenState extends State<LocationScreen> {
       return Scaffold();
     }
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
