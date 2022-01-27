@@ -14,4 +14,4 @@ API used: Open Weather Map
 
 PREVIEW:
 
-<img src="preview.gif" width=400>
+<img src="preview.gif" width=300>
