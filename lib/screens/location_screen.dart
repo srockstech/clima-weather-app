@@ -1,6 +1,5 @@
 import 'package:clima/screens/loading_screen.dart';
 import 'package:clima/services/weather.dart';
-import 'package:clima/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -123,7 +122,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       },
                       child: Icon(
                         Icons.location_city,
-                        size: 35,
+                        size: screenHeight * 0.045,
                       ),
                     ),
                     FlatButton(
@@ -139,7 +138,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       },
                       child: Icon(
                         Icons.my_location,
-                        size: 35,
+                        size: screenHeight * 0.045,
                       ),
                     ),
                   ],
@@ -148,7 +147,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Expanded(
                 flex: 4,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 15.0),
+                  padding: EdgeInsets.only(left: screenHeight * 0.02),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -165,7 +164,9 @@ class _LocationScreenState extends State<LocationScreen> {
                       Expanded(
                         child: Text(
                           weather.getWeatherIcon(condition),
-                          style: kConditionTextStyle,
+                          style: TextStyle(
+                            fontSize: screenHeight * 0.12,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -182,11 +183,14 @@ class _LocationScreenState extends State<LocationScreen> {
               Expanded(
                 flex: 4,
                 child: Padding(
-                  padding: EdgeInsets.only(right: 15.0),
+                  padding: EdgeInsets.only(right: screenHeight * 0.02),
                   child: Text(
-                    '${weather.getMessage(temperature)} in $cityName !',
+                    '${weather.getMessage(temperature)} in $cityName!',
                     textAlign: TextAlign.right,
-                    style: kMessageTextStyle,
+                    style: TextStyle(
+                      fontFamily: 'Spartan MB',
+                      fontSize: screenHeight * 0.042,
+                    ),
                   ),
                 ),
               ),
