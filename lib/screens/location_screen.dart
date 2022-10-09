@@ -1,8 +1,9 @@
 import 'package:clima/screens/loading_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:clima/utilities/constants.dart';
 import 'package:clima/services/weather.dart';
+import 'package:clima/utilities/constants.dart';
+import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
 import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -78,6 +79,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     if (temperature == null) {
       return Scaffold();
     }
@@ -153,7 +155,10 @@ class _LocationScreenState extends State<LocationScreen> {
                       Expanded(
                         child: Text(
                           '$temperature°',
-                          style: kTempTextStyle,
+                          style: TextStyle(
+                            fontFamily: 'Spartan MB',
+                            fontSize: screenHeight * 0.11,
+                          ),
                           textAlign: TextAlign.right,
                         ),
                       ),
