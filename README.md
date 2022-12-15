@@ -1,5 +1,7 @@
-# Clima, a weather app
+# Clima: The Weather app
 ## Introduction
+Clima, the weather app, can be used to view the weather conditions of the current location or any other city all over the World. On its cool UI, this lightweight app can be used to view accurate weather along with some cool messages.
+
 This app is a cross-platform mobile app developed using flutter. Using Open Weather Map API, this app:
 1. Asks for the location permission when installed.
 2. Once granted permission, it displays the current location's weather.
@@ -24,3 +26,5 @@ Step 4: Launch the app.<br />
 ## PREVIEW:
 
 <img src="preview.gif" width=300>
+
+``View the weather conditions of any city or your current location on Clima!``
