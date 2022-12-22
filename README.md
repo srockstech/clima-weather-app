@@ -1,6 +1,6 @@
 # Clima: The Weather app
 ## Introduction
-<img src="preview.gif" width=300>
+<img src="https://github.com/srockstech/clima-weather-app/blob/main/images/clima_logo.png" width=250>
 Clima, the weather app, can be used to view the weather conditions of the current location or any other city all over the World. On its cool UI, this lightweight app can be used to view accurate weather along with some cool messages.
 
 This app is a cross-platform mobile app developed using flutter. Using Open Weather Map API, this app:
