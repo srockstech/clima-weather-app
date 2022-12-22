@@ -1,9 +1,7 @@
 # Clima: The Weather app
 ## Introduction
 <img src="https://github.com/srockstech/clima-weather-app/blob/main/images/clima_logo.png" width=250>
-
-Install Now:
-<a href="https://play.google.com/store/apps/details?id=tech.srocks.clima">Play Store</a></br>
+<a href="https://play.google.com/store/apps/details?id=tech.srocks.clima">Play Store</a> <br />
 Clima, the weather app, can be used to view the weather conditions of the current location or any other city all over the World. On its cool UI, this lightweight app can be used to view accurate weather along with some cool messages.
 
 This app is a cross-platform mobile app developed using flutter. Using Open Weather Map API, this app:
@@ -12,12 +10,9 @@ This app is a cross-platform mobile app developed using flutter. Using Open Weat
 3. If unable to fetch weather data due to any reason, displays an error.
 4. Can be used to search and get current weather of any city in the world.
 
-## APK
-Step 1: Download the APK file from the 'Releases' section of this repository or from the drive link below:<br />
-<a href="https://play.google.com/store/apps/details?id=tech.srocks.clima">Play Store</a>
-<br />
-Step 2: Install the app via the downloaded APK.<br />
-Step 3: Make sure your device is connected to internet and location services are tuned on.<br />
+## Installation
+Step 1: Install the app from <a href="https://play.google.com/store/apps/details?id=tech.srocks.clima">Play Store</a>.</br>
+Step 3: Make sure your device is connected to internet and location services are turned on.<br />
 Step 4: Launch the app.<br />
 
 ## Flutter packages used:
